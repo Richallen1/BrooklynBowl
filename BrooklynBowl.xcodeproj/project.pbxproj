@@ -14,13 +14,21 @@
 		9BE233A118C50B9300C33475 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE233A018C50B9300C33475 /* main.m */; };
 		9BE233A518C50B9300C33475 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE233A418C50B9300C33475 /* AppDelegate.m */; };
 		9BE233A818C50B9300C33475 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE233A618C50B9300C33475 /* Main.storyboard */; };
-		9BE233AB18C50B9300C33475 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE233AA18C50B9300C33475 /* ViewController.m */; };
 		9BE233AD18C50B9300C33475 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BE233AC18C50B9300C33475 /* Images.xcassets */; };
 		9BE233B418C50B9300C33475 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE233B318C50B9300C33475 /* XCTest.framework */; };
 		9BE233B518C50B9300C33475 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE2339418C50B9300C33475 /* Foundation.framework */; };
 		9BE233B618C50B9300C33475 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE2339818C50B9300C33475 /* UIKit.framework */; };
 		9BE233BE18C50B9300C33475 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9BE233BC18C50B9300C33475 /* InfoPlist.strings */; };
 		9BE233C018C50B9300C33475 /* BrooklynBowlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE233BF18C50B9300C33475 /* BrooklynBowlTests.m */; };
+		9BE233CA18C50CAA00C33475 /* logo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9BE233C918C50CAA00C33475 /* logo.jpeg */; };
+		9BE233CD18C50D4000C33475 /* WhatsOnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE233CC18C50D4000C33475 /* WhatsOnViewController.m */; };
+		9BE2341118C51D8300C33475 /* WhatsOnTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2341018C51D8300C33475 /* WhatsOnTableViewCell.m */; };
+		9BE2341318C5283500C33475 /* Screen Shot 2014-03-03 at 21.13.08.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE2341218C5283500C33475 /* Screen Shot 2014-03-03 at 21.13.08.png */; };
+		9BE2341518C528B600C33475 /* Menu.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE2341418C528B600C33475 /* Menu.pdf */; };
+		9BE2341818C5298900C33475 /* FoodMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2341718C5298900C33475 /* FoodMenuViewController.m */; };
+		9BE2342318C5327500C33475 /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2342218C5327500C33475 /* StoreViewController.m */; };
+		9BE2342518C5333600C33475 /* cap.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9BE2342418C5333600C33475 /* cap.jpeg */; };
+		9BE2342918C91B5400C33475 /* WhatsOnCell.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9BE2342818C91B5400C33475 /* WhatsOnCell.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +53,25 @@
 		9BE233A318C50B9300C33475 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9BE233A418C50B9300C33475 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9BE233A718C50B9300C33475 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9BE233A918C50B9300C33475 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9BE233AA18C50B9300C33475 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9BE233AC18C50B9300C33475 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9BE233B218C50B9300C33475 /* BrooklynBowlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrooklynBowlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE233B318C50B9300C33475 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		9BE233BB18C50B9300C33475 /* BrooklynBowlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BrooklynBowlTests-Info.plist"; sourceTree = "<group>"; };
 		9BE233BD18C50B9300C33475 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9BE233BF18C50B9300C33475 /* BrooklynBowlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrooklynBowlTests.m; sourceTree = "<group>"; };
+		9BE233C918C50CAA00C33475 /* logo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpeg; sourceTree = "<group>"; };
+		9BE233CB18C50D4000C33475 /* WhatsOnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WhatsOnViewController.h; path = ../WhatsOnViewController.h; sourceTree = "<group>"; };
+		9BE233CC18C50D4000C33475 /* WhatsOnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WhatsOnViewController.m; path = ../WhatsOnViewController.m; sourceTree = "<group>"; };
+		9BE2340F18C51D8300C33475 /* WhatsOnTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhatsOnTableViewCell.h; sourceTree = "<group>"; };
+		9BE2341018C51D8300C33475 /* WhatsOnTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhatsOnTableViewCell.m; sourceTree = "<group>"; };
+		9BE2341218C5283500C33475 /* Screen Shot 2014-03-03 at 21.13.08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2014-03-03 at 21.13.08.png"; sourceTree = "<group>"; };
+		9BE2341418C528B600C33475 /* Menu.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Menu.pdf; sourceTree = "<group>"; };
+		9BE2341618C5298900C33475 /* FoodMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoodMenuViewController.h; path = ../FoodMenuViewController.h; sourceTree = "<group>"; };
+		9BE2341718C5298900C33475 /* FoodMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoodMenuViewController.m; path = ../FoodMenuViewController.m; sourceTree = "<group>"; };
+		9BE2342118C5327500C33475 /* StoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreViewController.h; sourceTree = "<group>"; };
+		9BE2342218C5327500C33475 /* StoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreViewController.m; sourceTree = "<group>"; };
+		9BE2342418C5333600C33475 /* cap.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cap.jpeg; sourceTree = "<group>"; };
+		9BE2342818C91B5400C33475 /* WhatsOnCell.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WhatsOnCell.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +131,17 @@
 		9BE2339A18C50B9300C33475 /* BrooklynBowl */ = {
 			isa = PBXGroup;
 			children = (
+				9BE2341618C5298900C33475 /* FoodMenuViewController.h */,
+				9BE2341718C5298900C33475 /* FoodMenuViewController.m */,
+				9BE233CB18C50D4000C33475 /* WhatsOnViewController.h */,
+				9BE233CC18C50D4000C33475 /* WhatsOnViewController.m */,
+				9BE2340F18C51D8300C33475 /* WhatsOnTableViewCell.h */,
+				9BE2341018C51D8300C33475 /* WhatsOnTableViewCell.m */,
+				9BE2342118C5327500C33475 /* StoreViewController.h */,
+				9BE2342218C5327500C33475 /* StoreViewController.m */,
 				9BE233A318C50B9300C33475 /* AppDelegate.h */,
 				9BE233A418C50B9300C33475 /* AppDelegate.m */,
 				9BE233A618C50B9300C33475 /* Main.storyboard */,
-				9BE233A918C50B9300C33475 /* ViewController.h */,
-				9BE233AA18C50B9300C33475 /* ViewController.m */,
 				9BE233AC18C50B9300C33475 /* Images.xcassets */,
 				9BE2339B18C50B9300C33475 /* Supporting Files */,
 			);
@@ -126,6 +151,11 @@
 		9BE2339B18C50B9300C33475 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9BE2342818C91B5400C33475 /* WhatsOnCell.jpg */,
+				9BE2342418C5333600C33475 /* cap.jpeg */,
+				9BE2341418C528B600C33475 /* Menu.pdf */,
+				9BE2341218C5283500C33475 /* Screen Shot 2014-03-03 at 21.13.08.png */,
+				9BE233C918C50CAA00C33475 /* logo.jpeg */,
 				9BE2339C18C50B9300C33475 /* BrooklynBowl-Info.plist */,
 				9BE2339D18C50B9300C33475 /* InfoPlist.strings */,
 				9BE233A018C50B9300C33475 /* main.m */,
@@ -228,8 +258,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BE2341318C5283500C33475 /* Screen Shot 2014-03-03 at 21.13.08.png in Resources */,
 				9BE233AD18C50B9300C33475 /* Images.xcassets in Resources */,
+				9BE2342918C91B5400C33475 /* WhatsOnCell.jpg in Resources */,
+				9BE2342518C5333600C33475 /* cap.jpeg in Resources */,
+				9BE2341518C528B600C33475 /* Menu.pdf in Resources */,
 				9BE2339F18C50B9300C33475 /* InfoPlist.strings in Resources */,
+				9BE233CA18C50CAA00C33475 /* logo.jpeg in Resources */,
 				9BE233A818C50B9300C33475 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,8 +284,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BE233AB18C50B9300C33475 /* ViewController.m in Sources */,
+				9BE2341118C51D8300C33475 /* WhatsOnTableViewCell.m in Sources */,
 				9BE233A518C50B9300C33475 /* AppDelegate.m in Sources */,
+				9BE2342318C5327500C33475 /* StoreViewController.m in Sources */,
+				9BE2341818C5298900C33475 /* FoodMenuViewController.m in Sources */,
+				9BE233CD18C50D4000C33475 /* WhatsOnViewController.m in Sources */,
 				9BE233A118C50B9300C33475 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,7 +415,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BrooklynBowl/BrooklynBowl-Prefix.pch";
 				INFOPLIST_FILE = "BrooklynBowl/BrooklynBowl-Info.plist";
@@ -390,7 +427,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BrooklynBowl/BrooklynBowl-Prefix.pch";
 				INFOPLIST_FILE = "BrooklynBowl/BrooklynBowl-Info.plist";
@@ -460,6 +496,7 @@
 				9BE233C518C50B9300C33475 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9BE233C618C50B9300C33475 /* Build configuration list for PBXNativeTarget "BrooklynBowlTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +505,7 @@
 				9BE233C818C50B9300C33475 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

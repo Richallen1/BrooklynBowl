@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  FoodMenuViewController.h
 //  BrooklynBowl
 //
 //  Created by Rich Allen on 03/03/2014.
@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface FoodMenuViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIWebView *pdfWebView;
 
 @end
