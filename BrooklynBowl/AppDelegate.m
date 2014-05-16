@@ -7,12 +7,27 @@
 //
 
 #import "AppDelegate.h"
+#import <Crashlytics/Crashlytics.h>
+
+@import CoreLocation;
+
+@interface AppDelegate ()<CLLocationManagerDelegate>
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
+
+@end
 
 @implementation AppDelegate
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize managedObjectModel = _managedObjectModel;
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [Crashlytics startWithAPIKey:@"310685f2178dcb0e73ee51d49d1e8a92c8e32b15"];
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
     return YES;
 }
 							
@@ -41,6 +56,158 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+    if ([region isKindOfClass:[CLBeaconRegion class]]) {
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.alertBody = @"Thanks for coming!..See ya soon!";
+        notification.soundName = @"Default";
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        NSLog(@"Exited Region......");
+    }
+}
+-(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
+{
+    if ([region isKindOfClass:[CLBeaconRegion class]]) {
+        NSLog(@"%@", region);
+        
+//        CLBeaconRegion *beaconRegion = (CLBeaconRegion *) region;
+//        
+//        NSNumber *firstBeacon = [[NSNumber alloc]initWithInt:1];
+//        NSNumber *secondBeacon = [[NSNumber alloc]initWithInt:2];
+//        NSNumber *thirdBeacon = [[NSNumber alloc]initWithInt:3];
+//        
+        //if (beaconRegion.major == firstBeacon)
+        //{
+            //Welcome Home
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.alertBody = @"Welcome Home! Come on in!!";
+            notification.soundName = @"Default";
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+       // }
+//        if (beaconRegion.major == secondBeacon)
+//        {
+//            //Restraunt Beacon
+//            UILocalNotification *notification = [[UILocalNotification alloc] init];
+//            notification.alertBody = @"Welcome to the Restraunt!! Try the Chicken!";
+//            notification.soundName = @"Default";
+//            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+//        }
+//        if (beaconRegion.major == thirdBeacon)
+//        {
+//            //Bar Beacon
+//            UILocalNotification *notification = [[UILocalNotification alloc] init];
+//            notification.alertBody = @"Welcome to the Bar!! Try Brooklyn Larger!";
+//            notification.soundName = @"Default";
+//            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+//        }
+        
+        NSLog(@"Entered Region......");
+    }
+}
+
+-(void)locationManager:(CLLocationManager*)manager
+       didRangeBeacons:(NSArray*)beacons
+              inRegion:(CLBeaconRegion*)region
+{
+    NSLog(@"Found Beacon......");
+    
+}
+
+//CORE DATA STUFF
+- (void)saveContext
+{
+    NSError *error = nil;
+    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    if (managedObjectContext != nil) {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
+
+#pragma mark - Core Data stack
+
+// Returns the managed object context for the application.
+// If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
+- (NSManagedObjectContext *)managedObjectContext
+{
+    if (_managedObjectContext != nil) {
+        return _managedObjectContext;
+    }
+    
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (coordinator != nil) {
+        _managedObjectContext = [[NSManagedObjectContext alloc] init];
+        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+    }
+    return _managedObjectContext;
+}
+
+// Returns the managed object model for the application.
+// If the model doesn't already exist, it is created from the application's model.
+- (NSManagedObjectModel *)managedObjectModel
+{
+    if (_managedObjectModel != nil) {
+        return _managedObjectModel;
+    }
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"BrooklynBowlDataModel" withExtension:@"momd"];
+    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    return _managedObjectModel;
+}
+
+// Returns the persistent store coordinator for the application.
+// If the coordinator doesn't already exist, it is created and the application's store added to it.
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
+{
+    if (_persistentStoreCoordinator != nil) {
+        return _persistentStoreCoordinator;
+    }
+    
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"BrooklynBowlDataModel.sqlite"];
+    
+    NSError *error = nil;
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+        /*
+         Replace this implementation with code to handle the error appropriately.
+         
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+         
+         Typical reasons for an error here include:
+         * The persistent store is not accessible;
+         * The schema for the persistent store is incompatible with current managed object model.
+         Check the error message to determine what the actual problem was.
+         
+         
+         If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
+         
+         If you encounter schema incompatibility errors during development, you can reduce their frequency by:
+         * Simply deleting the existing store:
+         [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
+         
+         * Performing automatic lightweight migration by passing the following dictionary as the options parameter:
+         @{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES}
+         
+         Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
+         
+         */
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    return _persistentStoreCoordinator;
+}
+
+#pragma mark - Application's Documents directory
+
+// Returns the URL to the application's Documents directory.
+- (NSURL *)applicationDocumentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 @end
