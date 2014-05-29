@@ -52,7 +52,7 @@
     _coreDataArray = [[NSArray alloc]init];
     whatsOnSegment.selectedSegmentIndex = 0;
     [self SetUpCoreLocation];
-    [self ShowLoadingView];
+   // [self ShowLoadingView];
     [self SetUpFlyers];
     [self CheckServer];
 }
@@ -163,7 +163,7 @@
     [context save:&error];
 }
 
-- (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
+- (void)setupFetchedResultsController
 {
     NSFetchedResultsController *fetchedResultsController;
     NSError *error;
@@ -174,6 +174,7 @@
                                                                    managedObjectContext:context
                                                                      sectionNameKeyPath:nil
                                                                               cacheName:nil];
+
     _coreDataArray = [context executeFetchRequest:request error:&error];
     
     for (Show *shw in _coreDataArray) {
@@ -182,13 +183,14 @@
     }
     if (_coreDataArray.count != 0) {
         
-        
         [self GetDateSectionHeaders];
         [self setUpJustAnnounced];
         [eventsTableView reloadData];
-        [loadingView removeFromSuperview];
+        //[loadingView removeFromSuperview];
+        NSLog(@"LOADING DONE!!");
     }
 }
+
 #pragma NETWORK Methods
 -(void)CheckServer
 {
@@ -207,6 +209,7 @@
         NSLog(@"UNREACHABLE!");
         reachable = NO;
         [self noInternetView];
+        [self setupFetchedResultsController];
     };
     
     // Start the notifier, which will cause the reachability object to retain itself!
@@ -236,6 +239,8 @@
 #pragma TableView Delegate Methods
 -(void)GetDateSectionHeaders
 {
+    
+    NSLog(@"<<<<<<<<GetDateSectionHeaders>>>>>>>");
     _dates = [[NSMutableArray alloc]init];
     if (_coreDataArray.count != 0) {
         for (Show *shw in _coreDataArray) {
@@ -245,11 +250,15 @@
     NSLog(@"Dates: %@", _dates);
     
 }
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    NSLog(@"%ld",(long)whatsOnSegment.selectedSegmentIndex);
     
     if (whatsOnSegment.selectedSegmentIndex == 0) {
         if (_coreDataArray) {
             return [_coreDataArray count];
+            NSLog(@"SDDFSA");
         }
     }
     if (whatsOnSegment.selectedSegmentIndex == 1) {
@@ -262,8 +271,8 @@
 	
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return 1;
 }
 
@@ -273,6 +282,7 @@
     
     Show *currentEvent;
     
+    NSLog(@"<<<<<<<<cellForRowAtIndexPath>>>>>>>");
         if (whatsOnSegment.selectedSegmentIndex == 0) {
             currentEvent = [_coreDataArray objectAtIndex:indexPath.section];
         }
@@ -280,6 +290,7 @@
         currentEvent = [_justAnnounced objectAtIndex:indexPath.section];
     }
     
+    NSLog(@"Loading Cell: %@", currentEvent.showName);
     
     WhatsOnTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
